@@ -130,3 +130,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 LOGOUT_REDIRECT_URL = '/login/'
+
+DEBUG = False
+ALLOWED_HOSTS = ['*']
