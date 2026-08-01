@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Assignment</title>
+</head>
+<body>
+
+<h1>{{ assignment.title }}</h1>
+
+<form method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">
+        Submit Assignment
+    </button>
+
+</form>
+
+</body>
+</html>

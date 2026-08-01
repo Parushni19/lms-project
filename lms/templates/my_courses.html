@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4">My Courses</h1>
+
+<div class="row">
+
+{% for enrollment in enrollments %}
+
+<div class="col-md-4 mb-4">
+
+    <div class="card shadow h-100">
+
+        <div class="card-body">
+
+            <h3>{{ enrollment.course.title }}</h3>
+
+            <p>{{ enrollment.course.description }}</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% empty %}
+
+<div class="alert alert-info">
+    You are not enrolled in any courses.
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

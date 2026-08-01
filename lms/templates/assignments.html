@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4">Assignments</h1>
+
+<div class="row">
+
+{% for assignment in assignments %}
+
+<div class="col-md-6 mb-4">
+
+    <div class="card shadow h-100">
+
+        <div class="card-body">
+
+            <h3>{{ assignment.title }}</h3>
+
+            <p>{{ assignment.description }}</p>
+
+            <p>
+                <strong>Course:</strong>
+                {{ assignment.course.title }}
+            </p>
+
+            <p>
+                <strong>Due Date:</strong>
+                {{ assignment.due_date }}
+            </p>
+
+            <a href="/submit-assignment/{{ assignment.id }}/"
+               class="btn btn-primary">
+                Submit Assignment
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% empty %}
+
+<div class="alert alert-info">
+    No assignments available.
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

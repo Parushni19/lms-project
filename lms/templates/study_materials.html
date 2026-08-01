@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4">Study Materials</h1>
+
+<div class="row">
+
+{% for material in materials %}
+
+<div class="col-md-4 mb-4">
+
+    <div class="card shadow h-100">
+
+        <div class="card-body">
+
+            <h4>{{ material.title }}</h4>
+
+            <p>
+                Course:
+                <strong>{{ material.course.title }}</strong>
+            </p>
+
+            <a href="{{ material.file.url }}"
+               class="btn btn-success"
+               target="_blank">
+                Download Material
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% empty %}
+
+<div class="alert alert-warning">
+    No study materials available.
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

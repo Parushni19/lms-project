@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4">Available Courses</h1>
+
+<div class="row">
+
+{% for course in courses %}
+
+<div class="col-md-4 mb-4">
+
+    <div class="card shadow h-100">
+
+        <div class="card-body">
+
+            <h3 class="card-title">
+                {{ course.title }}
+            </h3>
+
+            <p class="card-text">
+                {{ course.description }}
+            </p>
+
+            <a href="/enroll/{{ course.id }}/"
+               class="btn btn-primary">
+                Enroll
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% empty %}
+
+<p>No courses available.</p>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

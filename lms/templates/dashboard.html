@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4">
+    Welcome, {{ user.username }} 👋
+</h1>
+
+<div class="row g-3"></div>
+
+    <!-- <div class="col-md-3 col-sm-6"></div>
+        <div class="card text-center">
+            <div class="card-body">
+                <h5>Courses</h5>
+                <h2>{{ enrolled_courses }}</h2>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="col-md-3 col-sm-6">
+        <div class="card shadow">
+            <div class="card-body text-center">
+                <h5>Total Courses</h5>
+                <h1>{{ enrolled_courses }}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5>Assignments</h5>
+                <h2>{{ submitted_assignments }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5>Quizzes</h5>
+                <h2>{{ quiz_attempts }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5>Materials</h5>
+                <h2>{{ study_materials }}</h2>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

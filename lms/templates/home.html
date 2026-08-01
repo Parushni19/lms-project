@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="text-center py-5">
+
+    <h1 class="display-4">
+        Learning Management System 🎓
+    </h1>
+
+    <p class="lead">
+        Learn, Practice, Submit Assignments, and Take Quizzes.
+    </p>
+
+    <hr class="my-4">
+
+    {% if user.is_authenticated %}
+
+        <h3>Welcome, {{ user.username }} 👋</h3>
+
+        <a href="/dashboard/" class="btn btn-primary m-2">
+            Dashboard
+        </a>
+
+        <a href="/courses/" class="btn btn-success m-2">
+            Courses
+        </a>
+
+        <a href="/quizzes/" class="btn btn-warning m-2">
+            Quizzes
+        </a>
+
+    {% else %}
+
+        <a href="/login/" class="btn btn-primary m-2">
+            Login
+        </a>
+
+        <a href="/register/" class="btn btn-success m-2">
+            Register
+        </a>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
