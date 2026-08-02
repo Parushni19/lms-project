@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="card shadow-lg border-0 p-4">
+
+        <div class="text-center">
+
+            <div style="font-size:80px;">
+                👨‍🎓
+            </div>
+
+            <h1 class="fw-bold">
+                {{ user.username }}
+            </h1>
+
+            <p class="text-muted">
+                Student Member
+            </p>
+
+            <p>
+                Joined on
+                <strong>{{ user.date_joined|date:"d M Y" }}</strong>
+            </p>
+
+            <hr>
+
+        </div>
+
+        <div class="row g-4 mt-2">
+
+            <div class="col-md-4">
+                <div class="card bg-primary text-white shadow h-100">
+                    <div class="card-body text-center">
+                        <h5>📚 Courses</h5>
+                        <h1>{{ enrolled_courses }}</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card bg-success text-white shadow h-100">
+                    <div class="card-body text-center">
+                        <h5>📝 Assignments</h5>
+                        <h1>{{ submitted_assignments }}</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card bg-warning shadow h-100">
+                    <div class="card-body text-center">
+                        <h5>🏆 Quiz Attempts</h5>
+                        <h1>{{ quiz_attempts }}</h1>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card mt-5 border-0 bg-light">
+
+            <div class="card-body">
+
+                <h4 class="mb-3">
+                    📊 Learning Summary
+                </h4>
+
+                <p>
+                    Keep learning and complete more courses to improve your profile statistics.
+                </p>
+
+                <div class="progress" style="height:25px;">
+
+                    <div class="progress-bar progress-bar-striped progress-bar-animated"
+                         style="width:70%">
+                        Active Learner
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

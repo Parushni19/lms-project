@@ -2,45 +2,132 @@
 
 {% block content %}
 
-<div class="text-center py-5">
+<div class="container">
 
-    <h1 class="display-4">
-        Learning Management System 🎓
-    </h1>
+    <!-- Hero Section -->
+    <div class="p-5 mb-5 bg-primary text-white rounded text-center shadow">
 
-    <p class="lead">
-        Learn, Practice, Submit Assignments, and Take Quizzes.
-    </p>
+        <h1 class="display-3 fw-bold">
+            🎓 Learning Management System
+        </h1>
 
-    <hr class="my-4">
+        <p class="lead mt-3">
+            Learn Skills, Complete Assignments, Take Quizzes,
+            and Track Your Progress Anytime, Anywhere.
+        </p>
 
-    {% if user.is_authenticated %}
+        {% if user.is_authenticated %}
 
-        <h3>Welcome, {{ user.username }} 👋</h3>
+            <h4 class="mt-4">
+                Welcome back, {{ user.username }} 👋
+            </h4>
 
-        <a href="/dashboard/" class="btn btn-primary m-2">
-            Dashboard
-        </a>
+            <a href="/dashboard/" class="btn btn-warning btn-lg m-2">
+                Go to Dashboard
+            </a>
 
-        <a href="/courses/" class="btn btn-success m-2">
-            Courses
-        </a>
+            <a href="/courses/" class="btn btn-light btn-lg m-2">
+                Explore Courses
+            </a>
 
-        <a href="/quizzes/" class="btn btn-warning m-2">
-            Quizzes
-        </a>
+        {% else %}
 
-    {% else %}
+            <a href="/login/" class="btn btn-light btn-lg m-2">
+                Login
+            </a>
 
-        <a href="/login/" class="btn btn-primary m-2">
-            Login
-        </a>
+            <a href="/register/" class="btn btn-success btn-lg m-2">
+                Register Now
+            </a>
 
-        <a href="/register/" class="btn btn-success m-2">
-            Register
-        </a>
+        {% endif %}
 
-    {% endif %}
+    </div>
+
+    <!-- Features Section -->
+    <div class="row text-center">
+
+        <div class="col-md-3 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h1>📚</h1>
+                    <h4>Courses</h4>
+                    <p>
+                        Access learning content and enroll in courses.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h1>📝</h1>
+                    <h4>Assignments</h4>
+                    <p>
+                        Submit assignments and track submissions.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h1>🎯</h1>
+                    <h4>Quizzes</h4>
+                    <p>
+                        Test your knowledge with interactive quizzes.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h1>📈</h1>
+                    <h4>Progress</h4>
+                    <p>
+                        Monitor learning activities through dashboards.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Statistics Section -->
+    <div class="row text-center mt-5">
+
+        <div class="col-md-4">
+            <div class="card bg-success text-white shadow">
+                <div class="card-body">
+                    <h2>100+</h2>
+                    <p>Learning Resources</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card bg-warning shadow">
+                <div class="card-body">
+                    <h2>50+</h2>
+                    <p>Assignments</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card bg-info text-white shadow">
+                <div class="card-body">
+                    <h2>25+</h2>
+                    <p>Interactive Quizzes</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 </div>
 

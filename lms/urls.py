@@ -24,4 +24,5 @@ urlpatterns = [
     name='take_quiz'
 ),
     path('dashboard/', views.dashboard, name='dashboard'),
+    path('profile/', views.profile, name='profile'),
 ]   

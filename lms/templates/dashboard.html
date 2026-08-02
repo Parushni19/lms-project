@@ -1,58 +1,28 @@
-{% extends 'base.html' %}
+<div class="col-md-6">
+    <div class="card shadow border-0">
+        <div class="card-body">
 
-{% block content %}
+            <h4>📈 Learning Progress</h4>
+            <hr>
 
-<h1 class="mb-4">
-    Welcome, {{ user.username }} 👋
-</h1>
-
-<div class="row g-3"></div>
-
-    <!-- <div class="col-md-3 col-sm-6"></div>
-        <div class="card text-center">
-            <div class="card-body">
-                <h5>Courses</h5>
-                <h2>{{ enrolled_courses }}</h2>
+            {% with total=enrolled_courses|add:submitted_assignments|add:quiz_attempts %}
+            <div class="progress mb-3" style="height:25px;">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                     style="width:70%">
+                    Learning Progress
+                </div>
             </div>
-        </div>
-    </div> -->
+            {% endwith %}
 
-    <div class="col-md-3 col-sm-6">
-        <div class="card shadow">
-            <div class="card-body text-center">
-                <h5>Total Courses</h5>
-                <h1>{{ enrolled_courses }}</h1>
-            </div>
-        </div>
-    </div>
+            <p>📚 Enrolled Courses: {{ enrolled_courses }}</p>
+            <p>📝 Submitted Assignments: {{ submitted_assignments }}</p>
+            <p>🎯 Quiz Attempts: {{ quiz_attempts }}</p>
+            <p>📂 Study Materials: {{ study_materials }}</p>
 
-    <div class="col-md-3">
-        <div class="card text-center">
-            <div class="card-body">
-                <h5>Assignments</h5>
-                <h2>{{ submitted_assignments }}</h2>
+            <div class="alert alert-info mt-3">
+                💡 Keep learning every day. Small progress leads to big achievements.
             </div>
+
         </div>
     </div>
-
-    <div class="col-md-3">
-        <div class="card text-center">
-            <div class="card-body">
-                <h5>Quizzes</h5>
-                <h2>{{ quiz_attempts }}</h2>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3">
-        <div class="card text-center">
-            <div class="card-body">
-                <h5>Materials</h5>
-                <h2>{{ study_materials }}</h2>
-            </div>
-        </div>
-    </div>
-
 </div>
-
-{% endblock %}

@@ -2,35 +2,82 @@
 
 {% block content %}
 
-<h1 class="mb-4">My Courses</h1>
+<div class="container">
 
-<div class="row">
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold">
+            🎓 My Courses
+        </h1>
 
-{% for enrollment in enrollments %}
+        <p class="text-muted">
+            Courses you are currently enrolled in.
+        </p>
+    </div>
 
-<div class="col-md-4 mb-4">
+    <div class="row g-4">
 
-    <div class="card shadow h-100">
+        {% for enrollment in enrollments %}
 
-        <div class="card-body">
+        <div class="col-md-4">
 
-            <h3>{{ enrollment.course.title }}</h3>
+            <div class="card shadow h-100">
 
-            <p>{{ enrollment.course.description }}</p>
+                {% if "Python" in enrollment.course.title %}
+                <img src="https://www.python.org/static/community_logos/python-logo-master-v3-TM.png"
+                     class="card-img-top p-3"
+                     style="height:220px; object-fit:contain;">
+
+                {% elif "Java" in enrollment.course.title %}
+                <img src="https://www.oracle.com/a/ocom/img/cb71-java-logo.png"
+                     class="card-img-top p-3"
+                     style="height:220px; object-fit:contain;">
+
+                {% else %}
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
+                     class="card-img-top p-3"
+                     style="height:220px; object-fit:contain;">
+                {% endif %}
+
+                <div class="card-body">
+
+                    <span class="badge bg-success mb-2">
+                        ✓ Enrolled
+                    </span>
+
+                    <h4>
+                        {{ enrollment.course.title }}
+                    </h4>
+
+                    <p class="text-muted">
+                        {{ enrollment.course.description }}
+                    </p>
+
+                    <div class="progress mb-3">
+                        <div class="progress-bar bg-success"
+                             style="width: 100%">
+                            Active
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
+        {% empty %}
+
+        <div class="alert alert-info text-center">
+            <h4>📚 No Courses Yet</h4>
+            <p>You are not enrolled in any courses.</p>
+            <a href="/courses/" class="btn btn-primary">
+                Browse Courses
+            </a>
+        </div>
+
+        {% endfor %}
+
     </div>
-
-</div>
-
-{% empty %}
-
-<div class="alert alert-info">
-    You are not enrolled in any courses.
-</div>
-
-{% endfor %}
 
 </div>
 

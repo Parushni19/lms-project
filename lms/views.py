@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from django.db.models import Q
 
 from .models import (
     Course,
@@ -44,9 +45,16 @@ class CustomLoginView(LoginView):
     template_name = 'login.html'
 
 
-@login_required
 def courses(request):
-    courses = Course.objects.all()
+    query = request.GET.get('q')
+
+    if query:
+        courses = Course.objects.filter(
+            Q(title__icontains=query) |
+            Q(description__icontains=query)
+        )
+    else:
+        courses = Course.objects.all()
 
     return render(
         request,
@@ -226,3 +234,30 @@ def dashboard(request):
 def user_logout(request):
     logout(request)
     return redirect('/login/')
+
+@login_required
+def profile(request):
+
+    enrolled_courses = Enrollment.objects.filter(
+        student=request.user
+    ).count()
+
+    submitted_assignments = AssignmentSubmission.objects.filter(
+        student=request.user
+    ).count()
+
+    quiz_attempts = QuizResult.objects.filter(
+        student=request.user
+    ).count()
+
+    context = {
+        'enrolled_courses': enrolled_courses,
+        'submitted_assignments': submitted_assignments,
+        'quiz_attempts': quiz_attempts,
+    }
+
+    return render(
+        request,
+        'profile.html',
+        context
+    )
