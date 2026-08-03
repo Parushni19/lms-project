@@ -1,25 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4">Available Courses</h1>
+
+<div class="row">
+
+{% for course in courses %}
+
 <div class="col-md-4 mb-4">
 
     <div class="card shadow h-100 border-0">
 
-        {% if "Python" in course.title %}
-        <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935"
-             class="card-img-top"
-             height="220">
-        {% elif "Java" in course.title %}
-        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4"
-             class="card-img-top"
-             height="220">
-        {% elif "React" in course.title %}
-        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee"
-             class="card-img-top"
-             height="220">
-        {% else %}
-        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
-             class="card-img-top"
-             height="220">
-        {% endif %}
+       {% if course.title == "Python Programming" %}
+<img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935"
+     class="card-img-top"
+     height="220">
 
+{% elif course.title == "Java Programming" %}
+<img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4"
+     class="card-img-top"
+     height="220">
+
+{% elif course.title == "Web Development" %}
+<img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
+     class="card-img-top"
+     height="220">
+
+{% elif course.title == "Django Development" %}
+<img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c"
+     class="card-img-top"
+     height="220">
+
+{% elif course.title == "React JS Development" %}
+<img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee"
+     class="card-img-top"
+     height="220">
+
+{% elif course.title == "Data Structures & Algorithms" %}
+<img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea"
+     class="card-img-top"
+     height="220">
+
+{% elif course.title == "SQL & Database Management" %}
+<img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d"
+     class="card-img-top"
+     height="220">
+
+{% elif course.title == "Machine Learning Fundamentals" %}
+<img src="https://images.unsplash.com/photo-1527474305487-b87b222841cc"
+     class="card-img-top"
+     height="220">
+
+{% elif course.title == "Cyber Security Essentials" %}
+<img src="https://images.unsplash.com/photo-1563986768609-322da13575f3"
+     class="card-img-top"
+     height="220">
+
+{% elif course.title == "Cloud Computing" %}
+<img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa"
+     class="card-img-top"
+     height="220">
+
+{% else %}
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
+     class="card-img-top"
+     height="220">
+{% endif %}
         <div class="card-body">
 
             <span class="badge bg-success mb-2">
@@ -48,3 +95,15 @@
     </div>
 
 </div>
+
+{% empty %}
+
+<div class="alert alert-info">
+    No courses available.
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}
