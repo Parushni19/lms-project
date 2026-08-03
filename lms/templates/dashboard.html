@@ -19,10 +19,71 @@
             <p>🎯 Quiz Attempts: {{ quiz_attempts }}</p>
             <p>📂 Study Materials: {{ study_materials }}</p>
 
-            <div class="alert alert-info mt-3">
-                💡 Keep learning every day. Small progress leads to big achievements.
-            </div>
+            <div class="row mt-4">
 
+    <div class="col-md-6">
+        <div class="card shadow border-0">
+            <div class="card-body">
+
+                <h4>📈 Learning Progress</h4>
+                <hr>
+
+                <div class="progress mb-3" style="height:25px;">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                         style="width:70%">
+                        70%
+                    </div>
+                </div>
+
+                <p>📚 Enrolled Courses: {{ enrolled_courses }}</p>
+                <p>📝 Submitted Assignments: {{ submitted_assignments }}</p>
+                <p>🎯 Quiz Attempts: {{ quiz_attempts }}</p>
+                <p>📂 Study Materials: {{ study_materials }}</p>
+
+                <div class="alert alert-info mt-3">
+                    💡 Keep learning every day. Small progress leads to big achievements.
+                </div>
+
+            </div>
         </div>
     </div>
+
+    <div class="col-md-6">
+
+        <div class="card shadow border-0 mb-3">
+            <div class="card-body">
+
+                <h4>🏆 Latest Achievement</h4>
+                <hr>
+
+                <h5 class="text-success">
+                    Python Programming Completed
+                </h5>
+
+                <p>
+                    Congratulations! You have successfully completed the Python course.
+                </p>
+
+            </div>
+        </div>
+
+        <div class="card shadow border-0">
+            <div class="card-body">
+
+                <h4>🔥 Learning Streak</h4>
+                <hr>
+
+                <h2 class="text-danger">
+                    15 Days
+                </h2>
+
+                <p>
+                    Keep learning daily to maintain your streak.
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+
 </div>
